@@ -1,0 +1,46 @@
+/* Cover Snap Studio — dark Vice-neon editor chrome. Deep purple ink,
+   pink → orange gradient action, cyan accents. System fonts only. */
+:root {
+  --ink: #0d0616;
+  --panel: #1a0f2b;
+  --line: #3a2456;
+  --pink: #ff2e88;
+  --orange: #ffb03a;
+  --cyan: #00e5ff;
+  --text: #f4eefc;
+  --dim: #b7a8d9;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background:
+    radial-gradient(1200px 700px at 85% -10%, #4b1059 0%, transparent 55%),
+    radial-gradient(900px 600px at -10% 110%, #0b3a55 0%, transparent 50%),
+    var(--ink);
+  color: var(--text);
+  font: 15px/1.45 system-ui, sans-serif;
+}
+.app { display: flex; gap: 36px; align-items: flex-start; justify-content: center; padding: 28px; flex-wrap: wrap; }
+.controls { display: flex; flex-direction: column; gap: 13px; width: 320px; background: rgba(26, 15, 43, 0.72); border: 1px solid var(--line); border-radius: 14px; padding: 20px; backdrop-filter: blur(6px); }
+.controls h1 { margin: 0; font-size: 30px; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Arial Narrow', Impact, sans-serif; }
+.controls h1 span { color: var(--pink); }
+.tag { margin: 0; color: var(--dim); }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--dim); }
+input[type=text], select { font: inherit; text-transform: none; letter-spacing: 0; color: var(--text); padding: 8px 10px; background: #120a20; border: 1px solid var(--line); border-radius: 8px; }
+input[type=range] { accent-color: var(--pink); }
+.slots { display: flex; flex-direction: column; gap: 8px; }
+.slot { border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.slot.active { border-color: var(--pink); color: var(--text); }
+.slot input { font-size: 12px; text-transform: none; color: var(--dim); }
+fieldset.framing { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+fieldset.framing legend { font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--dim); padding: 0 4px; }
+button { font: inherit; font-weight: 700; padding: 11px; border: 0; border-radius: 8px; background: linear-gradient(90deg, var(--pink), #ff7a3a); color: #fff; cursor: pointer; }
+button.ghost { background: transparent; border: 1px solid var(--line); color: var(--text); font-weight: 600; }
+#status { margin: 0; color: var(--cyan); min-height: 1.2em; }
+.fine { margin: 0; font-size: 12px; color: var(--dim); }
+canvas { width: min(78vh, 92vw); height: auto; border-radius: 6px; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08); cursor: grab; }
+canvas:active { cursor: grabbing; }
+/* Full-bleed cover shots: hide the editor, the canvas fills the frame. */
+body.shot-cover .controls { display: none; }
+body.shot-cover .app { padding: 0; }
+body.shot-cover canvas { width: 100vw; height: 100vh; object-fit: contain; box-shadow: none; border-radius: 0; background: #0b0014; }
